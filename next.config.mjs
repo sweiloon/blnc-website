@@ -29,10 +29,11 @@ const nextConfig = {
       return config;
     },
 
-    output: 'export',
+    //output: 'export',
     typescript: {
       ignoreBuildErrors: true
-    }
+    },
+    images: { unoptimized: true }
 
   
     // ...other config
