@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "@/sections/Header";
 import { Hero } from "@/sections/Hero";
 import { LogoTicker } from "@/sections/LogoTicker";
@@ -13,14 +15,14 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Hero />
-      <LogoTicker />
-      <ProductShowcase />
-      <About />
-      <Pricing />
-      <Testimonials />
-      <Faq />
-      <CallToAction />
+      <div id="hero"><Hero /></div>
+      <div id="logo-ticker"><LogoTicker /></div>
+      <div id="product"><ProductShowcase /></div>
+      <div id="about"><About /></div>
+      <div id="pricing"><Pricing /></div>
+      <div id="testimonials"><Testimonials /></div>
+      <div id="faq"><Faq /></div>
+      <div id="call"><CallToAction /></div>
       <Footer />
     </>
   );

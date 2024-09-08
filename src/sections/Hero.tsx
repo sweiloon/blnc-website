@@ -12,6 +12,7 @@ import {
   useMotionValueEvent,
 } from "framer-motion";
 import { useRef } from "react";
+import { SignedOut } from "@clerk/clerk-react";
 
 export const Hero = () => {
   const heroRef = useRef(null);
@@ -39,11 +40,13 @@ export const Hero = () => {
               enterprise AI applications
             </p>
             <div className="flex gap-1 items-center mt-[30px]">
-              <button className="btn btn-primary">
-                Sign Up for Free Trial
-              </button>
+              <SignedOut>
+                <a href="/sign-up">
+                  <button className="btn btn-primary"> Sign Up</button>
+                </a>
+              </SignedOut>
               <button className="btn btn-text gap-1">
-                <span>Learn More</span>
+                <a href="#product">Learn More</a>
                 <ArrowIcon className="h-5 w-5" />
               </button>
             </div>

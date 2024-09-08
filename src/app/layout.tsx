@@ -4,6 +4,10 @@ import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import logosaas2 from "@/assets/logosaas2.png";
 
+import { ClerkProvider} from "@clerk/nextjs";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
+import { Toaster } from "react-hot-toast"
+
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,10 +24,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="relative">
-      <body className={twMerge(dmSans.className, "antialiased bg-[#EAEEFE]")}>
-        {children}
-      </body>
-    </html>
+    <ClerkProvider
+      signInFallbackRedirectUrl="/"
+      signUpFallbackRedirectUrl="/"
+    >
+      <html lang="en" className="relative">
+        <body className={twMerge(dmSans.className, "antialiased bg-[#EAEEFE]")}>
+          {children}
+          <ScrollToTopButton />
+          <Toaster />
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

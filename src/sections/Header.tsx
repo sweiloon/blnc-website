@@ -2,6 +2,7 @@ import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from "@/assets/logosaas.png";
 import Image from "next/image";
 import MenuIcon from "@/assets/menu.svg";
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react';
 
 export const Header = () => {
   return (
@@ -21,14 +22,19 @@ export const Header = () => {
             <Image src={Logo} alt="Saas Logo" height={140} width={140} />
             <MenuIcon className="h-5 w-5 md:hidden" />
             <nav className="hidden md:flex gap-6 text-black/60 items-center">
-              <a href="#">About</a>
-              <a href="#">Product</a>
-              <a href="#">Services</a>
-              <a href="#">Pricing</a>
-              <a href="#">FAQ</a>
-              <button className="bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight">
-                Contact Us
-              </button>
+              <a href="#hero">About</a>
+              <a href="#product">Product</a>
+              <a href="#about">Services</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#faq">FAQ</a>
+              <SignedOut>
+                <a href="/sign-in">
+                  <button className="btn btn-primary"> Sign In</button>
+                </a>
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
             </nav>
           </div>
         </div>
