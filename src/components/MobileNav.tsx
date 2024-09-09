@@ -10,6 +10,7 @@ import {
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { navItems } from '@/constants';
+import { useUser } from '@clerk/nextjs'
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -17,6 +18,7 @@ interface MobileNavProps {
 }
 
 const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
+  const { user } = useUser()
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
@@ -46,9 +48,12 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             </Link>
           </SignedOut>
           <SignedIn>
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between py-3 border-t border-gray-200">
               <span className="text-sm text-gray-600">Your Account</span>
-              <UserButton />
+              <div className="flex items-center space-x-2">
+                <span className="text-sm font-medium text-gray-700">{user?.firstName}</span>
+                <UserButton />
+              </div>
             </div>
           </SignedIn>
         </div>

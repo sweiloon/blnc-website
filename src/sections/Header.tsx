@@ -1,20 +1,29 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from "next/image";
 
 import { navItems } from '@/constants';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { useUser } from '@clerk/nextjs'
 import MobileNav from "@/components/MobileNav";
 
 import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from "@/assets/logosaas.png";
-import Image from "next/image";
 import MenuIcon from "@/assets/menu.svg";
+import toast from 'react-hot-toast';
 
 
 export const Header = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const { user } = useUser()
+
+  useEffect(() => {
+    if (user) {
+      toast.success(`Sign in successful`)
+    }
+  }, [user])
 
   const toggleMobileNav = () => {
     setIsMobileNavOpen(!isMobileNavOpen);
@@ -52,6 +61,9 @@ export const Header = () => {
               </SignedOut>
               <SignedIn>
                 <UserButton />
+                <div className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
+                  {user?.firstName} 
+                </div>
               </SignedIn>
             </nav>
           </div>

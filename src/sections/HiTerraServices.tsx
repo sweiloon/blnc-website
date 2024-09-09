@@ -32,7 +32,7 @@ const HiTerraServices = () => {
   return (
     <div className="py-20 w-full bg-white">
       <div className="flex justify-center">
-        <div className="tag">HiTerra Ai Platform</div>
+        <a href="/demo" className="btn btn-primary">Free Trial for HiTerra</a>
       </div>
 
       <div className="mt-12 grid lg:grid-cols-4 grid-cols-1 gap-8">
