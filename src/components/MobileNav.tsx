@@ -30,6 +30,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             <Link
               key={item.name}
               href={item.href}
+              onClick={onClose}
               className="text-gray-700 hover:text-gray-900 px-3 py-2 rounded-md text-sm font-medium"
             >
               {item.name}
