@@ -5,6 +5,8 @@ import SocialInsta from "@/assets/social-insta.svg";
 import SocialLinkedIn from "@/assets/social-linkedin.svg";
 import SocialPin from "@/assets/social-pin.svg";
 import SocialYoutube from "@/assets/social-youtube.svg";
+import Link from 'next/link';
+import { navItems } from "@/constants";
 
 export const Footer = () => {
   return (
@@ -15,12 +17,14 @@ export const Footer = () => {
         </div>
         <nav className="flex flex-col md:flex-row md: justify-center gap-6 mt-6 text-lg">
 
-          <a href="#hero">About</a>
-          <a href="#product">Features</a>
-          <a href="#testimonials">Customers</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#faq">Help</a>
-          <a href="#call">Careers</a>
+          {navItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+              >
+                {item.name}
+              </Link>
+            ))}
         </nav>
         <div className="flex justify-center gap-6 mt-6">
           <SocialX />
