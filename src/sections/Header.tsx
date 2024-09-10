@@ -60,10 +60,7 @@ export const Header = () => {
                 </a>
               </SignedOut>
               <SignedIn>
-                <UserButton />
-                <div className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                  {user?.firstName} 
-                </div>
+                <UserButton showName={true} />
               </SignedIn>
             </nav>
           </div>

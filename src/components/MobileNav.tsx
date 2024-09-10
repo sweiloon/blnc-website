@@ -10,7 +10,9 @@ import {
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { navItems } from '@/constants';
-import { useUser } from '@clerk/nextjs'
+import { SignOutButton } from '@clerk/nextjs'
+import toast from "react-hot-toast";
+import { useRouter } from 'next/navigation';
 
 interface MobileNavProps {
   isOpen: boolean;
@@ -18,7 +20,18 @@ interface MobileNavProps {
 }
 
 const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
-  const { user } = useUser()
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    try {
+      onClose(); 
+      toast.success("Signed out successfully");
+      router.push('/'); // Optionally redirect to home page
+    } catch (error) {
+      console.error("Error signing out:", error);
+      toast.error("Failed to sign out");
+    }
+  };
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent side="right" className="w-[300px] sm:w-[400px] p-0">
@@ -48,13 +61,25 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
             </Link>
           </SignedOut>
           <SignedIn>
-            <div className="flex items-center justify-between py-3 border-t border-gray-200">
+            {/* <div className="flex items-center justify-between border-gray-200">
               <span className="text-sm text-gray-600">Your Account</span>
               <div className="flex items-center space-x-2">
-                <span className="text-sm font-medium text-gray-700">{user?.firstName}</span>
-                <UserButton />
+                <UserButton showName={true} />
               </div>
-            </div>
+            </div> */}
+
+              <div className="flex justify-between">
+                <Link href="/user-profile" onClick={onClose}>
+                  <button className="w-auto py-2 px-4 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors">
+                    View Profile
+                  </button>
+                </Link>
+                <SignOutButton>
+                  <button className="w-auto py-2 px-4 bg-red-500 text-white rounded-md hover:bg-primary-dark transition-colors" onClick={handleSignOut}>
+                    Sign out
+                  </button>
+                </SignOutButton>
+              </div>
           </SignedIn>
         </div>
       </SheetContent>
