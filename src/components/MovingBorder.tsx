@@ -18,6 +18,7 @@ export function Button({
   borderClassName,
   duration,
   className,
+  glowColor = "#9342f5",
   ...otherProps
 }: {
   borderRadius?: string;
@@ -27,38 +28,41 @@ export function Button({
   borderClassName?: string;
   duration?: number;
   className?: string;
+  glowColor?: string;
   [key: string]: any;
 }) {
   return (
     <Component
       className={cn(
-        // remove h-16 w-40, add  md:col-span-2
-        "bg-transparent relative text-xl p-[1px] overflow-hidden md:col-span-2 md:row-span-1",
+        "bg-white relative text-xl p-[1px] overflow-hidden md:col-span-2 md:row-span-1",
         containerClassName
       )}
       style={{
         borderRadius: borderRadius,
+        boxShadow: `0 0 10px ${glowColor}`,
       }}
       {...otherProps}
     >
       <div
-        className="absolute inset-0 rounde-[1.75rem]"
+        className="absolute inset-0"
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
       >
-        {/* change the effect color at here */}
         <MovingBorder duration={duration} rx="30%" ry="30%">
           <div
             className={cn(
-              "h-20 w-20 opacity-[0.8] bg-[radial-gradient(#9342f5_40%,transparent_60%)] bg-white",
+              "h-20 w-20 opacity-[0.8]",
               borderClassName
             )}
+            style={{
+              background: `radial-gradient(${glowColor} 40%,transparent 60%)`,
+            }}
           />
         </MovingBorder>
       </div>
 
       <div
         className={cn(
-          "relative bg-slate-100/[0.] border border-slate-800 backdrop-blur-xl text-white flex items-center justify-center w-full h-full text-sm antialiased",
+          "relative bg-white border border-gray-200 text-black flex items-center justify-center w-full h-full text-sm antialiased p-4",
           className
         )}
         style={{
