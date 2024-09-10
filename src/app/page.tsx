@@ -10,6 +10,7 @@ import { CallToAction } from "@/sections/CallToAction";
 import { Footer } from "@/sections/Footer";
 import { About } from "@/sections/About";
 import { Faq } from "@/sections/Faq";
+import HiTerraServices from "@/sections/HiTerraServices";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <div id="logo-ticker"><LogoTicker /></div>
       <div id="product"><ProductShowcase /></div>
       <div id="about"><About /></div>
+      <div><HiTerraServices /></div>
       <div id="pricing"><Pricing /></div>
       <div id="testimonials"><Testimonials /></div>
       <div id="faq"><Faq /></div>

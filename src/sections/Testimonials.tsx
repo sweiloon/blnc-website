@@ -17,54 +17,63 @@ import React from "react";
 
 const testimonials = [
   {
+    id: 0,
     text: "As a seasoned designer always on the lookout for innovative tools, Framer.com instantly grabbed my attention.",
     imageSrc: avatar1.src,
     name: "Jamie Rivera",
     username: "@jamietechguru00",
   },
   {
+    id: 1,
     text: "Our team's productivity has skyrocketed since we started using this tool. ",
     imageSrc: avatar2.src,
     name: "Josh Smith",
     username: "@jjsmith",
   },
   {
+    id: 2,
     text: "This app has completely transformed how I manage my projects and deadlines.",
     imageSrc: avatar3.src,
     name: "Morgan Lee",
     username: "@morganleewhiz",
   },
   {
+    id: 3,
     text: "I was amazed at how quickly we were able to integrate this app into our workflow.",
     imageSrc: avatar4.src,
     name: "Casey Jordan",
     username: "@caseyj",
   },
   {
+    id: 4,
     text: "Planning and executing events has never been easier. This app helps me keep track of all the moving parts, ensuring nothing slips through the cracks.",
     imageSrc: avatar5.src,
     name: "Taylor Kim",
     username: "@taylorkimm",
   },
   {
+    id: 5,
     text: "The customizability and integration capabilities of this app are top-notch.",
     imageSrc: avatar6.src,
     name: "Riley Smith",
     username: "@rileysmith1",
   },
   {
+    id: 6,
     text: "Adopting this app for our team has streamlined our project management and improved communication across the board.",
     imageSrc: avatar7.src,
     name: "Jordan Patels",
     username: "@jpatelsdesign",
   },
   {
+    id: 7,
     text: "With this app, we can easily assign tasks, track progress, and manage documents all in one place.",
     imageSrc: avatar8.src,
     name: "Sam Dawson",
     username: "@dawsontechtips",
   },
   {
+    id: 8,
     text: "Its user-friendly interface and robust features support our diverse needs.",
     imageSrc: avatar9.src,
     name: "Casey Harper",
@@ -96,8 +105,8 @@ const TestimonialsColumn = (props: {
     >
       {[...new Array(2)].fill(0).map((_, index) => (
         <React.Fragment key={index}>
-          {props.testimonials.map(({ text, imageSrc, name, username }) => (
-            <div className="card">
+          {props.testimonials.map(({ id, text, imageSrc, name, username }) => (
+            <div key={id} className="card">
               <div>{text}</div>
               <div className="flex items-center gap-2 mt-5">
                 <Image

@@ -27,10 +27,6 @@ export const About = () => {
           </div>
 
           <h2 className="mt-5 section-title">Our Services</h2>
-          
-          <div className="flex justify-center mt-5">
-            <a href="/demo" className="btn btn-primary">Free Trial for HiTerra</a>
-          </div>
 
           <p className="mt-5 section-description">
             Over 200 pre-built functions give users a head start on

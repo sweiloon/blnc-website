@@ -27,6 +27,7 @@ export default function RootLayout({
     <ClerkProvider
       signInFallbackRedirectUrl="/"
       signUpFallbackRedirectUrl="/"
+      publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY as string}
     >
       <html lang="en" className="relative">
         <body className={twMerge(dmSans.className, "antialiased bg-[#EAEEFE]")}>

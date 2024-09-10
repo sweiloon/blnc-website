@@ -55,7 +55,7 @@ export const Hero = () => {
             <motion.img
               src={cogImage.src}
               alt="Cog Image"
-              className="md:absolute h-full md:w-auto md:max-w-none md:-left-6 lg:left-0"
+              className="w-full md:w-auto md:h-full md:max-h-[648px] md:absolute md:object-contain md:left-1/2 md:-translate-x-1/2 lg:left-0 lg:translate-x-0"
               animate={{
                 translateY: [-30, 30],
               }}

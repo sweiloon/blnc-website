@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 const pricingTiers = [
   {
+    id: 0,
     title: "Free",
     monthlyPrice: 0,
     buttonText: "Get started for free",
@@ -21,6 +22,7 @@ const pricingTiers = [
     ],
   },
   {
+    id: 1,
     title: "Pro",
     monthlyPrice: 299,
     buttonText: "Sign up now",
@@ -39,6 +41,7 @@ const pricingTiers = [
     ],
   },
   {
+    id: 2,
     title: "Business",
     monthlyPrice: 1899,
     buttonText: "Sign up now",
@@ -77,6 +80,7 @@ export const Pricing = () => {
         <div className="flex flex-col gap-6 items-center mt-10 lg:flex-row lg:items-start lg:justify-normal">
           {pricingTiers.map(
             ({
+              id,
               title,
               monthlyPrice,
               buttonText,
@@ -85,6 +89,7 @@ export const Pricing = () => {
               features,
             }) => (
               <div
+              key={id}
                 className={twMerge(
                   "card",
                   inverse === true && "border-black bg-black text-white"
@@ -141,8 +146,8 @@ export const Pricing = () => {
                   {buttonText}
                 </button>
                 <ul className="flex flex-col gap-5 mt-8">
-                  {features.map((features) => (
-                    <li className="text-[16px] flex items-center gap-4">
+                  {features.map((features,index) => (
+                    <li key={index} className="text-[16px] flex items-center gap-4">
                       <CheckIcon className="h-6 w-6" />
                       <span>{features}</span>
                     </li>
