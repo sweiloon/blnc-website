@@ -23,14 +23,9 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
   const router = useRouter();
 
   const handleSignOut = async () => {
-    try {
       onClose(); 
       toast.success("Signed out successfully");
-      router.push('/'); // Optionally redirect to home page
-    } catch (error) {
-      console.error("Error signing out:", error);
-      toast.error("Failed to sign out");
-    }
+      router.push('/');
   };
   return (
     <Sheet open={isOpen} onOpenChange={onClose}>
