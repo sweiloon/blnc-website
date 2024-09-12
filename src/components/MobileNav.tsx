@@ -48,6 +48,11 @@ const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose }) => {
           ))}
         </nav>
         <div className="px-6 py-4 mt-auto border-t">
+          <div>
+            <a href="https://forms.gle/Z23ou4kMguLBQpxe6">
+              <button className="btn w-full py-2 px-4 bg-gradient-to-r from-cyan-500 to-blue-500 mb-6"> Maha</button>
+            </a>
+          </div>
           <SignedOut>
             <Link href="/sign-in" onClick={onClose}>
               <button className="w-full py-2 px-4 bg-primary text-white rounded-md hover:bg-primary-dark transition-colors">
