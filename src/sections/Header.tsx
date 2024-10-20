@@ -54,16 +54,16 @@ export const Header = () => {
                 {item.name}
               </Link>
             ))}
+                <a href="https://forms.gle/3f27KFXQ6PTaxkLF7">
+                  <button className="btn bg-gradient-to-r from-cyan-500 to-blue-500"> Maha</button>
+                </a>
               <SignedOut>
                 <a href="/sign-in">
                   <button className="btn btn-primary"> Sign In</button>
                 </a>
               </SignedOut>
               <SignedIn>
-                <UserButton />
-                <div className="text-gray-700 px-3 py-2 rounded-md text-sm font-medium">
-                  {user?.firstName} 
-                </div>
+                <UserButton showName={true} />
               </SignedIn>
             </nav>
           </div>
